@@ -8,14 +8,17 @@ const chainMaker = {
 
   length : 0,
   chain : [],
+
   getLength() {
     return this.length;
   },
+
   addLink(value) {
     this.length++;
     this.chain.push(value);
     return chainMaker;
   },
+
   removeLink(position) {
     if (typeof position != 'number'|| !Number.isInteger(position) ||  position>this.length || position<1){ 
       this.length = 0;
@@ -25,6 +28,7 @@ const chainMaker = {
     this.chain.splice(position-1,1);
     return chainMaker;
   },
+
   reverseChain() {
     let reversedChain = [];
     for (let i=this.chain.length-1;i>=0;i--){
@@ -33,6 +37,7 @@ const chainMaker = {
     this.chain = reversedChain;
     return chainMaker;
   },
+  
   finishChain() {
     let chainStr = [];
     for (let i in this.chain){
